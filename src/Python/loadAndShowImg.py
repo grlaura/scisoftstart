@@ -13,7 +13,7 @@ def loadAndShowImg(image_path):
             print('Image loaded successfully')
             cv2.imshow('Image', image)
             # Wait for a key press to close the window
-            cv2.waitKey(0)
+            cv2.waitKey(5000)
             cv2.destroyAllWindows()
         else:
             print('Image is not loaded, the file may be corrupted or in an unsupported format')
