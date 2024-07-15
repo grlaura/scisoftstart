@@ -8,9 +8,10 @@ import click
 @click.argument("path", type=click.Path(exists=True))
 def main(path):
     # Load and show the image
-    loadAndShowImg(path)
+    #loadAndShowImg(path)
 
-    # Do processing
+    # Load the image
+    image = cv2.imread(path)
 
     # Example processing results
     numbers = [1, 2, 3, 4, 5]

@@ -2,9 +2,6 @@ def loadAndShowImg(image_path):
     import os
     import cv2
 
-    # Load the image
-    image = cv2.imread(image_path)
-
     # Check if the file exists
     if os.path.isfile(image_path):
         # Try to open the image
