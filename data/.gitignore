@@ -1,1 +1,5 @@
-full/**
+# Ignore everything
+/**
+
+# Except this specific directory
+!sample/
