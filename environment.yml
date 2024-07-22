@@ -1,0 +1,9 @@
+name: scisoftstart_python
+channels:
+  - defaults
+dependencies:
+  - opencv
+  - snakemake
+  - click
+  - numpy
+prefix: C:\Users\lrglaura\AppData\Local\miniconda3\envs\scisoftstart_python
