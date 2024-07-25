@@ -1,11 +1,13 @@
 import json
 import cv2
+import numpy as np
 import os
 from loadAndShowImg import loadAndShowImg
+from detectBlobsinImg import detectBlobsinImg
 import click
 
 @click.command()
-@click.argument("path", type=click.Path(exists=True))
+@click.argument("path", type=click.Path(exists=True), default="data/full_01/images/image_001.png")
 def main(path):
     # Load and show the image
     #loadAndShowImg(path)
@@ -13,10 +15,13 @@ def main(path):
     # Load the image
     image = cv2.imread(path)
 
-    # Example processing results
-    numbers = [1, 2, 3, 4, 5]
+    #loadAndShowImg(path)
 
-    print (numbers)
+    # Processing
+    centroids = detectBlobsinImg(image, False)
+
+    # Example results
+    print (centroids)
 
 if __name__ == "__main__":
     main()
