@@ -18,6 +18,6 @@ rule all:
 rule process_image:
     input:
         script='src/Python/proccessImg.py',
-        image=f'data/{dirname}/images/{{file}}.png'
-    output: f'results/{dirname}/{{file}}.json'
+        image=f'data/{dirname}/images/{{image}}.png'
+    output: f'results/{dirname}/{{image}}.json'
     shell: 'python {input.script} {input.image} > {output}'

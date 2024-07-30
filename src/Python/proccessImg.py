@@ -20,8 +20,15 @@ def main(path):
     # Processing
     centroids = detectBlobsinImg(image, False)
 
-    # Example results
-    print (centroids)
+        # Convert centroids to the correct format if necessary
+    # Assuming 'centroids' is a NumPy array, convert it to a list of lists
+    centroids_list = centroids.tolist() if isinstance(centroids, np.ndarray) else centroids
+
+    # Create a dictionary with the desired key and the list of centroids
+    output_data = {"DetectedPointCoordinates": centroids_list}
+
+    # Print the dictionary as a JSON-formatted string
+    print(json.dumps(output_data))
 
 if __name__ == "__main__":
     main()
