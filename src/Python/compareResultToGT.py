@@ -14,17 +14,23 @@ def loadPtsfromJson(path, description):
             return points
     except FileNotFoundError:
         print(f"Error: Ground truth file not found at {path}")
-        return []
+        return 
     except json.JSONDecodeError:
         print(f"Error: Invalid JSON data in ground truth file at {path}")
-        return []
+        return 
 
 # Define the function to compare points
 def compare_points(ground_truth_path, results_path):
     ground_truth_points = loadPtsfromJson(ground_truth_path, 'GTPointCoordinates')
     results_points = loadPtsfromJson(results_path, 'DetectedPointCoordinates')
-    # Calculate the Euclidean distance between each pair of points
-    distances = calculate_euclidean_distance(ground_truth_points, results_points)
+
+    # Test results and ground truth have same size
+    if len(ground_truth_points) != len(results_points) or not ground_truth_points or not results_points:
+        print(f"Error: Ground truth and results have different number of points")
+        return
+    else:
+        # Calculate the Euclidean distance between each pair of points
+        distances = calculate_euclidean_distance(ground_truth_points, results_points)
 
     # Return the distances
     return distances
